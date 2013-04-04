@@ -6,11 +6,13 @@ include_once("../functions/functions.php");
 $consulta = new Consulta();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['foo'])) {   
-    foreach($_POST['foo'] as $key=>$value){
+        foreach($_POST['foo'] as $key=>$value){
          $consulta=new Consulta();
          $consulta->setConsulta('UPDATE gallery SET orden="'.$key.'" WHERE id="'.$value.'"');
-         exit;   
-}}
+         echo 'UPDATE gallery SET orden="'.$key.'" WHERE id="'.$value.'"';
+        }
+        exit; 
+    }
     if (isset($_POST['idDescription'])) {   
         $id=$_POST['idDescription'];
         $consulta->setConsulta('UPDATE project SET description="' .$_POST['description'] . '" WHERE id=' . $id);
@@ -65,13 +67,10 @@ $(function() {
 function updateListItem(itemId, newStatus) {
     //var sorted = $( "#sortable" ).sortable( "toArray" );
     var sorted = $( "#sortable" ).sortable( "serialize" );
-    console.log(sorted);
     $.post('',sorted+'&action=updateOrder').done(function(data) {});
     
   }
 
-    </script>
-    <script>
  window.onload = function() {
         editor=CKEDITOR.replace('description');
     };
@@ -82,7 +81,7 @@ function saveText(){
     type: "POST",
     data: data,
   });
-location.reload(true);
+    location.reload(true);
 }
 </script>
 </head>

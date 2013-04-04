@@ -2,7 +2,7 @@
 $GLOBALS["directory"]=$_SERVER['DOCUMENT_ROOT'];
 $GLOBALS['DB_IP'] = 'DB_IP';
 $GLOBALS['DB_USER'] = 'DB_USER';
-$GLOBALS['DB_PASS'] = 'DB_NAME';
+$GLOBALS['DB_PASS'] = 'DB_PASS';
 $GLOBALS['DB_NAME'] = 'DB_NAME';
 define('BASE','');
 error_reporting(NULL);
